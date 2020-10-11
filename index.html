@@ -23,7 +23,15 @@
     </div>
     <div class="content">
       <div class="pick-zone">
+        <div class="pick-title pick-title--player">you picked</div>
+        <div class="pick-title pick-title--cp">the house picked</div>
+        <div class="result-zone">
+          <div class="title">you win</div>
+          <a type="button" onclick="playAgain()">play again</a>
+        </div>
+
         <div id="pick-bg"><img src="./resources/assets/images/bg-triangle.svg" /></div>
+
         <div id="rock" class="badge" onclick="selectBadge('rock')">
           <img src="./resources/assets/images/icon-rock.svg" />
         </div>
@@ -33,15 +41,19 @@
         <div id="scissors" class="badge" onclick="selectBadge('scissors')">
           <img src="./resources/assets/images/icon-scissors.svg" />
         </div>
+
+        <div id="cp-rock" class="badge">
+          <img src="./resources/assets/images/icon-rock.svg" />
+        </div>
+        <div id="cp-paper" class="badge">
+          <img src="./resources/assets/images/icon-paper.svg" />
+        </div>
+        <div id="cp-scissors" class="badge">
+          <img src="./resources/assets/images/icon-scissors.svg" />
+        </div>
       </div>
-      <!-- <div class="result-zone">
-        <div class="badge--player">PLAYER</div>
-        <div class="badge--computer">COMPUTER</div>
-      </div> -->
     </div>
-    <div class="rules">
-      rules
-    </div>
+    <a class="rules">rules</a>
   </body>
   <script type="text/javascript" src="./resources/js/main.js"></script>
 </html>

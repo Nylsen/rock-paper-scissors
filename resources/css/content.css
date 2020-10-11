@@ -1,5 +1,6 @@
-@import './global.css';
+@import "./global.css";
 
+/* PLAYING ZONE */
 .content {
   height: 100%;
   width: 100%;
@@ -15,8 +16,7 @@
   justify-content: center;
   position: relative;
 
-  height: 500px;
-  width: 500px;
+  transform: scale(0.6);
 }
 #pick-bg {
   opacity: 1;
@@ -26,6 +26,70 @@
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
+.pick-title {
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: white;
+  opacity: 0;
+  text-shadow: 1px 1px 5px black;
+}
+.pick-title--player {
+  transform: translate(-150px, 40px);
+}
+.pick-title--cp {
+  transform: translate(150px, 40px);
+}
+.pick-title.picked {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* RESULT ZONE */
+.result-zone {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transform: translate(0, 160px);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.result-zone.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+.result-zone > .title {
+  text-transform: uppercase;
+  font-size: 80px;
+  font-weight: 700;
+  color: white;
+  margin: 10px;
+  text-shadow: 1px 1px 5px black;
+}
+.result-zone > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 80px;
+  width: 300px;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 600;
+  background-color: white;
+  color: hsl(228, 25%, 31%);
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px black;
+}
+/* GENERIC BADGES */
 .badge {
   position: absolute;
   display: flex;
@@ -37,11 +101,16 @@
   cursor: pointer;
   transition: transform 0.5s ease, height 0.3s ease, width 0.3s ease;
 }
-.badge:active {
+.badge:active:not(.selected) {
   height: 170px;
   width: 170px;
   transition: height 0.3s ease, width 0.3s ease;
 }
+
+.badge > img {
+  z-index: 2;
+}
+/* PLAYER BADGES */
 #rock {
   background: var(--rock-gradient);
   box-shadow: 0 8px hsl(349, 67%, 42%);
@@ -62,7 +131,7 @@
 }
 
 .badge:before {
-  content: '';
+  content: "";
   z-index: 1;
   position: absolute;
   height: 120px;
@@ -76,15 +145,48 @@
 #paper.selected,
 #scissors.selected {
   z-index: 3;
-  transform: translate(-120px, 0);
+  transform: translate(-150px, -135px) scale(1.3);
+  transform-origin: center;
+  transition: transform 0.5s ease;
+}
+#rock.hidden,
+#paper.hidden,
+#scissors.hidden {
+  z-index: 2;
+  transform: translate(-150px, -135px) scale(0.8);
   transform-origin: center;
   transition: transform 0.5s ease;
 }
 
-.badge > img {
-  z-index: 2;
+/* COMPUTER BADGES */
+#cp-rock {
+  background: var(--rock-gradient);
+  box-shadow: 0 8px hsl(349, 67%, 42%);
+}
+#cp-paper {
+  background: var(--paper-gradient);
+  box-shadow: 0 8px hsl(230, 59%, 52%);
+}
+#cp-scissors {
+  background: var(--scissors-gradient);
+  box-shadow: 0 8px hsl(39, 90%, 41%);
 }
 
-.result-zone {
-  display: none;
+#cp-rock,
+#cp-paper,
+#cp-scissors {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(150px, -135px) scale(0.1);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+#cp-rock.selected,
+#cp-paper.selected,
+#cp-scissors.selected {
+  z-index: 3;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(150px, -135px) scale(1.3);
+  transition: transform 0.3s ease;
 }
