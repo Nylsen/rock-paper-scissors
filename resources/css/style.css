@@ -1,0 +1,13 @@
+@import './global.css';
+@import './header.css';
+@import './content.css';
+@import './rules.css';
+
+body {
+  align-items: center;
+  background: var(--background-gradient);
+}
+
+body * {
+  user-select: none;
+}

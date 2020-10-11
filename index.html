@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="nylsen" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./resources/assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./resources/css/style.css" />
+    <link rel="font" href="https://fonts.googleapis.com/css?family=Spartan" />
+    <title>Frontend Mentor | Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="title">rock paper scissors</div>
+      <div class="score-board">
+        <p>score</p>
+        <span>0</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="pick-zone">
+        <div id="pick-bg"><img src="./resources/assets/images/bg-triangle.svg" /></div>
+        <div id="rock" class="badge" onclick="selectBadge('rock')">
+          <img src="./resources/assets/images/icon-rock.svg" />
+        </div>
+        <div id="paper" class="badge" onclick="selectBadge('paper')">
+          <img src="./resources/assets/images/icon-paper.svg" />
+        </div>
+        <div id="scissors" class="badge" onclick="selectBadge('scissors')">
+          <img src="./resources/assets/images/icon-scissors.svg" />
+        </div>
+      </div>
+      <!-- <div class="result-zone">
+        <div class="badge--player">PLAYER</div>
+        <div class="badge--computer">COMPUTER</div>
+      </div> -->
+    </div>
+    <div class="rules">
+      rules
+    </div>
+  </body>
+  <script type="text/javascript" src="./resources/js/main.js"></script>
+</html>

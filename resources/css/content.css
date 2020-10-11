@@ -1,0 +1,90 @@
+@import './global.css';
+
+.content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.pick-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  height: 500px;
+  width: 500px;
+}
+#pick-bg {
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+#pick-bg.hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.5s ease, height 0.3s ease, width 0.3s ease;
+}
+.badge:active {
+  height: 170px;
+  width: 170px;
+  transition: height 0.3s ease, width 0.3s ease;
+}
+#rock {
+  background: var(--rock-gradient);
+  box-shadow: 0 8px hsl(349, 67%, 42%);
+  transform: translate(0, 90px);
+  transform-origin: center;
+}
+#paper {
+  background: var(--paper-gradient);
+  box-shadow: 0 8px hsl(230, 59%, 52%);
+  transform: translate(-120px, -110px);
+  transform-origin: center;
+}
+#scissors {
+  background: var(--scissors-gradient);
+  box-shadow: 0 8px hsl(39, 90%, 41%);
+  transform: translate(120px, -110px);
+  transform-origin: center;
+}
+
+.badge:before {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  height: 120px;
+  width: 120px;
+  background-color: var(--badge-bg);
+  border-radius: 50%;
+  box-shadow: inset 0 8px rgba(0, 0, 0, 0.1);
+}
+
+#rock.selected,
+#paper.selected,
+#scissors.selected {
+  z-index: 3;
+  transform: translate(-120px, 0);
+  transform-origin: center;
+  transition: transform 0.5s ease;
+}
+
+.badge > img {
+  z-index: 2;
+}
+
+.result-zone {
+  display: none;
+}
