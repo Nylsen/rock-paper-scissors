@@ -1,4 +1,4 @@
-@import "./global.css";
+@import './global.css';
 
 /* PLAYING ZONE */
 .content {
@@ -15,9 +15,22 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100%;
 
   transform: scale(0.6);
 }
+
+@media only screen and (min-width: 900px) {
+  .pick-zone {
+    transform: scale(0.8);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .pick-zone {
+    transform: scale(1);
+  }
+}
+
 #pick-bg {
   opacity: 1;
   transition: opacity 0.8s ease;
@@ -131,7 +144,7 @@
 }
 
 .badge:before {
-  content: "";
+  content: '';
   z-index: 1;
   position: absolute;
   height: 120px;
