@@ -27,8 +27,9 @@
         <div class="pick-title pick-title--cp">the house picked</div>
         <div class="result-zone">
           <div class="title">you win</div>
-          <a type="button" onclick="playAgain()">play again</a>
+          <a type="button" onclick="playAgain()" title="Play again">play again</a>
         </div>
+        <div id="winner-aura"></div>
 
         <div id="pick-bg"><img src="./resources/assets/images/bg-triangle.svg" /></div>
 
@@ -53,7 +54,17 @@
         </div>
       </div>
     </div>
-    <a class="rules">rules</a>
+    <a class="rules-btn" href="#rules">rules</a>
+    <div id="rules">
+      <a class="rules-bg" href="#"></a>
+      <div class="rules-modal">
+        <div class="rules-header">
+          <div>rules</div>
+          <a class="close" href="#" title="Close"><img src="./resources/assets/images/icon-close.svg" /></a>
+        </div>
+        <img src="./resources/assets/images/image-rules.svg" />
+      </div>
+    </div>
   </body>
   <script type="text/javascript" src="./resources/js/main.js"></script>
 </html>

@@ -1,13 +1,14 @@
-@import './global.css';
+@import "./global.css";
 
 /* PLAYING ZONE */
 .content {
+  z-index: 1;
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 .pick-zone {
@@ -16,7 +17,6 @@
   justify-content: center;
   position: relative;
   width: 100%;
-
   transform: scale(0.6);
 }
 
@@ -101,6 +101,15 @@
   color: hsl(228, 25%, 31%);
   border-radius: 10px;
   box-shadow: 0px 1px 5px black;
+  cursor: pointer;
+}
+.result-zone > a:hover {
+  background-color: rgb(228, 228, 228);
+}
+.result-zone > a:active {
+  transform: scale(1.1);
+  background-color: rgb(196, 196, 196);
+  transition: all 0.3 ease;
 }
 /* GENERIC BADGES */
 .badge {
@@ -123,6 +132,49 @@
 .badge > img {
   z-index: 2;
 }
+
+#winner-aura {
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 280px;
+  width: 280px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.03);
+
+  transform: scale(0.1);
+  opacity: 0;
+  visibility: hidden;
+}
+#winner-aura:before {
+  content: "";
+  position: absolute;
+  height: 220px;
+  width: 220px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+#winner-aura:after {
+  content: "";
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+#winner-aura.player {
+  transform: translate(-150px, -130px) scale(1.5);
+}
+#winner-aura.computer {
+  transform: translate(150px, -130px) scale(1.5);
+}
+#winner-aura.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.2s ease-out;
+}
 /* PLAYER BADGES */
 #rock {
   background: var(--rock-gradient);
@@ -144,7 +196,7 @@
 }
 
 .badge:before {
-  content: '';
+  content: "";
   z-index: 1;
   position: absolute;
   height: 120px;
